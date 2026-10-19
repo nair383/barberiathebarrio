@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios & Tienda | Barbería The Barrio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#F3E5AB', 500: '#D4AF37', 600: '#AA7C11' },
+                        darkBg: '#09090b',
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], serif: ['Cinzel', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-200 font-sans antialiased">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/60 border-b border-white/10" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-gold-500/80 flex items-center justify-center bg-black">
+                    <i class="fa-solid fa-scissors text-gold-500 text-sm"></i>
+                </div>
+                <span class="font-serif font-bold text-lg text-white">THE BARRIO</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-medium">
+                <a href="index.html" class="hover:text-gold-500 transition-colors">Inicio</a>
+                <a href="servicios.html" class="text-gold-500 font-bold">Servicios & Tienda</a>
+                <a href="nosotros.html" class="hover:text-gold-500 transition-colors">Nosotros</a>
+                <a href="contacto.html" class="hover:text-gold-500 transition-colors">Contacto & FAQ</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-full bg-gold-500 text-black font-bold text-xs uppercase tracking-wider">Agenda Online</a>
+                <button id="cartToggleBtn" class="relative p-2 rounded-full bg-white/5 border border-white/10">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-500"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-gold-500 text-black text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-gold-500 text-xs font-bold uppercase tracking-widest">Catálogo Completo</span>
+            <h1 class="text-4xl font-serif font-bold text-white mt-2">NUESTROS SERVICIOS Y TIENDA</h1>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm mt-3">Selecciona tus tratamientos o productos para cotizar y agendar directamente.</p>
+            
+            <!-- Dynamic Category Filter -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <button onclick="filterCatalog('all')" class="filter-btn active px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider border border-gold-500 bg-gold-500 text-black">Todos</button>
+                <button onclick="filterCatalog('corte')" class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:border-gold-500 text-gray-300">Cortes</button>
+                <button onclick="filterCatalog('barba')" class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:border-gold-500 text-gray-300">Barba</button>
+                <button onclick="filterCatalog('tienda')" class="filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:border-gold-500 text-gray-300">Tienda / Productos</button>
+            </div>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="catalogGrid">
+            <!-- Items mapped dynamically via script.js -->
+        </div>
+    </main>
+
+    <!-- Floating Cart Side Drawer -->
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-darkBg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col shadow-2xl">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="font-serif font-bold text-lg text-white flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="text-gold-500"></i> Tu Resumen
+            </h3>
+            <button id="closeCartBtn" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <div id="cartItemsList" class="flex-1 overflow-y-auto space-y-4"></div>
+        <div class="border-t border-white/10 pt-4 mt-4 space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold">
+                <span>Total:</span>
+                <span id="cartTotal" class="text-gold-500">$0</span>
+            </div>
+            <button onclick="sendOrderWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Enviar por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

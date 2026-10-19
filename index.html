@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería The Barrio | Barbería & Grooming Premium en Providencia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#F3E5AB',
+                            500: '#D4AF37',
+                            600: '#AA7C11',
+                        },
+                        darkBg: '#09090b',
+                        cardBg: '#121215',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons & FontAwesome -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/60 border-b border-white/10" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full border-2 border-gold-500/80 flex items-center justify-center bg-black/80 shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-scissors text-gold-500 text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-xl tracking-wider text-white block uppercase leading-none">THE BARRIO</span>
+                    <span class="text-[10px] text-gold-500 tracking-[0.2em] font-medium uppercase">Barbería & Tienda</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
+                <a href="index.html" class="text-gold-500 font-bold hover:text-gold-400 transition-colors">Inicio</a>
+                <a href="servicios.html" class="hover:text-gold-500 transition-colors">Servicios & Tienda</a>
+                <a href="nosotros.html" class="hover:text-gold-500 transition-colors">Nosotros</a>
+                <a href="contacto.html" class="hover:text-gold-500 transition-colors">Contacto & FAQ</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-600 via-gold-500 to-amber-300 text-black font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-sm"></i>
+                    Reservar Cita
+                </a>
+                <button id="cartToggleBtn" class="relative p-2.5 rounded-full bg-white/5 border border-white/10 hover:border-gold-500/50 transition-colors">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-500"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-gold-500 text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none p-2">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-gold-500/20 px-6 py-6 transition-all duration-300">
+            <nav class="flex flex-col gap-4 uppercase tracking-wider text-sm font-medium">
+                <a href="index.html" class="text-gold-500 font-bold py-2 border-b border-white/5">Inicio</a>
+                <a href="servicios.html" class="hover:text-gold-500 py-2 border-b border-white/5">Servicios & Tienda</a>
+                <a href="nosotros.html" class="hover:text-gold-500 py-2 border-b border-white/5">Nosotros</a>
+                <a href="contacto.html" class="hover:text-gold-500 py-2 border-b border-white/5">Contacto & FAQ</a>
+                <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="mt-4 text-center py-3 rounded-xl bg-gold-500 text-black font-bold">
+                    Reservar en Línea (AgendaPro)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Overlay & Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover object-center opacity-25 scale-105 animate-pulse-slow" alt="Barbería The Barrio Providencia">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/70 to-transparent"></div>
+            <div class="absolute inset-0 bg-radial-vignette"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-widest mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Abierto De Lunes a Domingo en Providencia
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white tracking-tight mb-6 leading-tight">
+                EL ARTE DEL <span class="bg-gradient-to-r from-gold-400 via-gold-500 to-amber-200 bg-clip-text text-transparent">GROOMING</span> URBANO
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg mb-10 font-light leading-relaxed">
+                Estilo, precisión y una experiencia relajante de primer nivel en Av. Hernando de Aguirre 3641, Providencia. Estacionamiento disponible y atención personalizada.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-amber-400 text-black font-bold uppercase tracking-wider hover:shadow-[0_0_30px_rgba(212,175,55,0.7)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calendar-days text-lg"></i>
+                    Reservar Turno Ahora
+                </a>
+                <a href="servicios.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/15 text-white font-medium uppercase tracking-wider hover:bg-white/10 hover:border-gold-500/50 transition-all flex items-center justify-center gap-3 backdrop-blur-md">
+                    Ver Carta de Servicios
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-gold-500"></i>
+                </a>
+            </div>
+
+            <!-- Quick Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 text-left border-t border-white/10 pt-8">
+                <div class="p-4 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                    <i class="fa-solid fa-square-parking text-gold-500 text-xl mb-1"></i>
+                    <h3 class="text-sm font-bold text-white">Estacionamiento</h3>
+                    <p class="text-xs text-gray-400">Exclusivo clientes</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                    <i class="fa-solid fa-clock text-gold-500 text-xl mb-1"></i>
+                    <h3 class="text-sm font-bold text-white">Lunes a Domingo</h3>
+                    <p class="text-xs text-gray-400">Desde las 10:30 a.m.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                    <i class="fa-solid fa-location-dot text-gold-500 text-xl mb-1"></i>
+                    <h3 class="text-sm font-bold text-white">Providencia</h3>
+                    <p class="text-xs text-gray-400">Hernando de Aguirre 3641</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/5 backdrop-blur-sm">
+                    <i class="fa-brands fa-whatsapp text-gold-500 text-xl mb-1"></i>
+                    <h3 class="text-sm font-bold text-white">WhatsApp Directo</h3>
+                    <p class="text-xs text-gray-400">+56 9 3240 9253</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Services Highlights -->
+    <section class="py-20 relative bg-black/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-gold-500 text-xs font-bold tracking-widest uppercase">Experiencia Exclusiva</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">Servicios Destacados</h2>
+                </div>
+                <a href="servicios.html" class="mt-4 md:mt-0 text-gold-500 font-semibold hover:text-gold-400 flex items-center gap-2 text-sm uppercase tracking-wider">
+                    Explorar Todos los Servicios <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="glass-card rounded-2xl p-6 relative group border border-white/10 hover:border-gold-500/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Corte Barbería">
+                        <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-500 font-bold text-sm border border-gold-500/30">$18.000</span>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Corte The Barrio Classic</h3>
+                    <p class="text-gray-400 text-sm mb-6">Asesoría de imagen, lavamiento capilar con shampoo premium, corte a tijera/máquina y peinado profesional.</p>
+                    <button onclick="addToCart('Corte The Barrio Classic', 18000)" class="w-full py-3 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 font-bold text-xs uppercase tracking-wider hover:bg-gold-500 hover:text-black transition-all">
+                        Añadir a Cotización / Carrito
+                    </button>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-card rounded-2xl p-6 relative group border border-white/10 hover:border-gold-500/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Perfilado de Barba">
+                        <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-500 font-bold text-sm border border-gold-500/30">$14.000</span>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Ritual de Barba Spa</h3>
+                    <p class="text-gray-400 text-sm mb-6">Diseño y perfilado con toalla caliente con aceites esenciales, navaja tradicional y bálsamo hidratante de barba.</p>
+                    <button onclick="addToCart('Ritual de Barba Spa', 14000)" class="w-full py-3 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 font-bold text-xs uppercase tracking-wider hover:bg-gold-500 hover:text-black transition-all">
+                        Añadir a Cotización / Carrito
+                    </button>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-card rounded-2xl p-6 relative group border border-white/10 hover:border-gold-500/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Combo VIP Barberia">
+                        <span class="absolute top-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-500 font-bold text-sm border border-gold-500/30">$28.000</span>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-white mb-2">Combo Combo Executive (Corte + Barba)</h3>
+                    <p class="text-gray-400 text-sm mb-6">Servicio integral: corte personalizado, perfilado completo de barba con toalla caliente y bebida de cortesía.</p>
+                    <button onclick="addToCart('Combo Executive (Corte + Barba)', 28000)" class="w-full py-3 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 font-bold text-xs uppercase tracking-wider hover:bg-gold-500 hover:text-black transition-all">
+                        Añadir a Cotización / Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Shopping Cart Sidebar / Drawer -->
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-darkBg border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col shadow-2xl">
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="font-serif font-bold text-lg text-white flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="text-gold-500"></i> Cotizador & Servicios
+            </h3>
+            <button id="closeCartBtn" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <div id="cartItemsList" class="flex-1 overflow-y-auto space-y-4">
+            <!-- Items inject dynamically -->
+        </div>
+        <div class="border-t border-white/10 pt-4 mt-4 space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold">
+                <span>Total Estimado:</span>
+                <span id="cartTotal" class="text-gold-500">$0</span>
+            </div>
+            <button onclick="sendOrderWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+            </button>
+            <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-black font-bold uppercase tracking-wider text-xs text-center block transition-colors">
+                Confirmar Hora en AgendaPro
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <span class="font-serif font-bold text-xl text-white block mb-2">THE BARRIO</span>
+                <p class="text-gray-400 text-xs leading-relaxed">Barbería y tienda masculina de máxima elegancia. Redefiniendo el cuidado personal en Santiago de Chile.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase mb-4 text-gold-500">Horarios</h4>
+                <p class="text-gray-400 text-xs">Lunes a Domingo</p>
+                <p class="text-white text-xs font-semibold">10:30 a.m. en adelante</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase mb-4 text-gold-500">Ubicación</h4>
+                <p class="text-gray-400 text-xs">Av. Hernando de Aguirre 3641</p>
+                <p class="text-gray-400 text-xs">Providencia, Región Metropolitana</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase mb-4 text-gold-500">Contacto</h4>
+                <a href="https://instagram.com/barberiathebarrio" target="_blank" class="text-gray-400 hover:text-gold-500 text-xs flex items-center gap-2 mb-2">
+                    <i class="fa-brands fa-instagram text-base"></i> @barberiathebarrio
+                </a>
+                <a href="tel:932409253" class="text-gray-400 hover:text-gold-500 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-base"></i> +56 9 3240 9253
+                </a>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-xs mt-12 pt-6 border-t border-white/5">
+            © 2026 Barbería The Barrio. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, duration: 800 });
+    </script>
+</body>
+</html>

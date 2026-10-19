@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Barbería The Barrio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#F3E5AB', 500: '#D4AF37', 600: '#AA7C11' },
+                        darkBg: '#09090b',
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], serif: ['Cinzel', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-200 font-sans">
+
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/60 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center bg-black">
+                    <i class="fa-solid fa-scissors text-gold-500 text-sm"></i>
+                </div>
+                <span class="font-serif font-bold text-lg text-white">THE BARRIO</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-medium">
+                <a href="index.html" class="hover:text-gold-500">Inicio</a>
+                <a href="servicios.html" class="hover:text-gold-500">Servicios & Tienda</a>
+                <a href="nosotros.html" class="text-gold-500 font-bold">Nosotros</a>
+                <a href="contacto.html" class="hover:text-gold-500">Contacto & FAQ</a>
+            </nav>
+            <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="px-4 py-2 rounded-full bg-gold-500 text-black font-bold text-xs uppercase">Agenda Online</a>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 max-w-6xl mx-auto px-4">
+        <!-- Story Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+                <span class="text-gold-500 font-bold text-xs uppercase tracking-widest">Nuestra Esencia</span>
+                <h1 class="text-4xl font-serif font-bold text-white mt-2 mb-6">MÁS QUE UNA BARBERÍA, UN ESTILO DE VIDA</h1>
+                <p class="text-gray-300 leading-relaxed mb-4 text-sm">
+                    Ubicados en el corazón de Providencia (**Av. Hernando de Aguirre 3641**), **Barbería The Barrio** nace con la misión de fusionar la elegancia tradicional de la barbería clásica con la frescura y tendencia del estilismo urbano contemporáneo.
+                </p>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Ofrecemos un espacio diseñado exclusivamente para el confort masculino, combinando atención personalizada, productos de grooming premium, café o bebidas de cortesía y estacionamiento para tu comodidad.
+                </p>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop" class="w-full h-auto object-cover" alt="Interior Barberia The Barrio">
+            </div>
+        </div>
+
+        <!-- Team Highlight -->
+        <div class="text-center mb-12">
+            <span class="text-gold-500 font-bold text-xs uppercase tracking-widest">Master Barbers</span>
+            <h2 class="text-3xl font-serif font-bold text-white mt-2">NUESTRO EQUIPO</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gold-500">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover" alt="Barbero Master">
+                </div>
+                <h3 class="text-lg font-serif font-bold text-white">Especialistas en Barbería</h3>
+                <p class="text-xs text-gold-500 uppercase tracking-wider mb-2">Master Barbers</p>
+                <p class="text-gray-400 text-xs">Años de experiencia en degradados precisos, corte clásico y rituales de barba con toalla caliente.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gold-500">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover" alt="Estilista Masculino">
+                </div>
+                <h3 class="text-lg font-serif font-bold text-white">Atención Lunes a Domingo</h3>
+                <p class="text-xs text-gold-500 uppercase tracking-wider mb-2">Disponibilidad Total</p>
+                <p class="text-gray-400 text-xs">Horario continuo desde las 10:30 a.m. adaptable a tu agenda diaria o de fin de semana.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gold-500">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover" alt="Asesor Grooming">
+                </div>
+                <h3 class="text-lg font-serif font-bold text-white">Asesoría de Imagen</h3>
+                <p class="text-xs text-gold-500 uppercase tracking-wider mb-2">Grooming & Tienda</p>
+                <p class="text-gray-400 text-xs">Te recomendamos los mejores productos para el cuidado posterior de tu cabello y barba en casa.</p>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

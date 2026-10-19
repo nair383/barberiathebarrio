@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y FAQ | Barbería The Barrio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#F3E5AB', 500: '#D4AF37', 600: '#AA7C11' },
+                        darkBg: '#09090b',
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], serif: ['Cinzel', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-200 font-sans">
+
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/60 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-gold-500 flex items-center justify-center bg-black">
+                    <i class="fa-solid fa-scissors text-gold-500 text-sm"></i>
+                </div>
+                <span class="font-serif font-bold text-lg text-white">THE BARRIO</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-medium">
+                <a href="index.html" class="hover:text-gold-500">Inicio</a>
+                <a href="servicios.html" class="hover:text-gold-500">Servicios & Tienda</a>
+                <a href="nosotros.html" class="hover:text-gold-500">Nosotros</a>
+                <a href="contacto.html" class="text-gold-500 font-bold">Contacto & FAQ</a>
+            </nav>
+            <a href="https://barberiathebarrio.site.agendapro.com/cl" target="_blank" class="px-4 py-2 rounded-full bg-gold-500 text-black font-bold text-xs uppercase">Agenda Online</a>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-gold-500 text-xs font-bold uppercase tracking-widest">Encuéntranos</span>
+            <h1 class="text-4xl font-serif font-bold text-white mt-2">UBICACIÓN Y CONSULTAS</h1>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <!-- Contact Details & Form -->
+            <div class="glass-card p-8 rounded-2xl border border-white/10">
+                <h2 class="text-xl font-serif font-bold text-white mb-6">Envíanos un mensaje directo</h2>
+                <form id="contactForm" class="space-y-4" onsubmit="handleContactSubmit(event)">
+                    <div>
+                        <label class="text-xs uppercase text-gray-400 font-bold block mb-1">Nombre Completo</label>
+                        <input type="text" id="contactName" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-gold-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase text-gray-400 font-bold block mb-1">Teléfono / WhatsApp</label>
+                        <input type="tel" id="contactPhone" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-gold-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase text-gray-400 font-bold block mb-1">Mensaje o Consulta</label>
+                        <textarea id="contactMessage" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-gold-500 outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-black font-bold uppercase text-xs tracking-wider transition-colors">
+                        Enviar Consulta vía WhatsApp
+                    </button>
+                </form>
+            </div>
+
+            <!-- Map & Info Card -->
+            <div class="flex flex-col justify-between space-y-6">
+                <div class="glass-card p-6 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-location-dot text-gold-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-sm">Dirección</h3>
+                            <p class="text-gray-400 text-xs">Av. Hernando de Aguirre 3641, Providencia, Región Metropolitana (Código: HC55+P5)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-square-parking text-gold-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-sm">Estacionamiento</h3>
+                            <p class="text-gray-400 text-xs">Cuenta con estacionamiento privado para clientes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-clock text-gold-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="text-white font-bold text-sm">Horario de Atención</h3>
+                            <p class="text-gray-400 text-xs">Lunes a Domingo desde las 10:30 a.m.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Map Embed Container -->
+                <div class="rounded-2xl overflow-hidden border border-white/10 h-64 relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.123!2d-70.598!3d-33.435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI2JzA2LjAiUyA3M8KwMzUnNTIuOCJX!5e0!3m2!1ses!2scl!4v1620000000000" class="w-full h-full border-0 grayscale invert opacity-80" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="max-w-3xl mx-auto mt-16">
+            <h2 class="text-2xl font-serif font-bold text-white text-center mb-8">PREGUNTAS FRECUENTES</h2>
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+                    <button class="w-full p-4 text-left font-bold text-white flex justify-between items-center text-sm" onclick="toggleFaq(this)">
+                        <span>¿Cómo puedo agendar una hora de atención?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gold-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-gray-400 border-t border-white/5 leading-relaxed">
+                        Puedes reservar directamente a través de nuestra plataforma online en AgendaPro (`barberiathebarrio.site.agendapro.com/cl`) o escribiéndonos directamente al WhatsApp +56 9 3240 9253.
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+                    <button class="w-full p-4 text-left font-bold text-white flex justify-between items-center text-sm" onclick="toggleFaq(this)">
+                        <span>¿Cuentan con estacionamiento para clientes?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gold-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-gray-400 border-t border-white/5 leading-relaxed">
+                        Sí, contamos con espacios de estacionamiento reservados exclusivamente para la comodidad de nuestros clientes en la ubicación de Av. Hernando de Aguirre 3641.
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+                    <button class="w-full p-4 text-left font-bold text-white flex justify-between items-center text-sm" onclick="toggleFaq(this)">
+                        <span>¿Atienden los domingos y festivos?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gold-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden p-4 pt-0 text-xs text-gray-400 border-t border-white/5 leading-relaxed">
+                        Atendemos de Lunes a Domingo de manera continua desde las 10:30 a.m. Te recomendamos agendar previamente tu hora para asegurar tu cupo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
